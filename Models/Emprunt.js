@@ -6,7 +6,7 @@ class Emprunt extends Model {
 }
 
 Emprunt.init ({
-    Emprunt_ID: {
+    id: {
         type : DataTypes.INTEGER,
         primaryKey : true,
         autoIncrement : true

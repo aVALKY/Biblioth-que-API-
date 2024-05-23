@@ -6,7 +6,7 @@ class Auteur extends Model {
 }
 
 Auteur.init({
-    Nom_ID: {
+    id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true

@@ -10,6 +10,17 @@ class AuteurController {
             result.json({error : "Une erreur est survenue lors de la récupération des auteurs"});
         }
     }
+
+    async getAuteurByID(request, result){
+        try {
+            const auteur = await AuteurService.getAuteurByID();
+            result.json(auteur)
+        } catch (error) {
+            result.status(500);
+            result.json({error : "Une erreur est survenue lors de la récupération de l'auteur"});
+        }
+    }
 }
+
 
 module.exports = new AuteurController();

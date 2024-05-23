@@ -6,7 +6,7 @@ class Livre extends Model {
 }
 
 Livre.init({
-    Livre_ID : {
+    id: {
         type : DataTypes.INTEGER,
         primaryKey : true,
         autoIncrement : true
