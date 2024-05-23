@@ -13,7 +13,7 @@ class AuteurController {
 
     async getAuteurByID(request, result){
         try {
-            const auteur = await AuteurService.getAuteurByID();
+            const auteur = await AuteurService.getAuteurByID(request.params.id);
             result.json(auteur)
         } catch (error) {
             result.status(500);

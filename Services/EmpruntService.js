@@ -1,11 +1,11 @@
 const Emprunt = require("../Models/Emprunt");
 
 class EmpruntService {
-    async getAllCompte(){
+    async getAllEmprunt(){
         return await Emprunt.findAll();
     }
 
-    async getCompteByID(EmpruntID){
+    async getEmpruntByID(EmpruntID){
         return await Emprunt.findByPk(EmpruntID)
     }
 }

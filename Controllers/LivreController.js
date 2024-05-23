@@ -13,7 +13,7 @@ class LivreController {
 
     async getLivreByID(request, result){
         try {
-            const livre = await LivreService.getLivreByID();
+            const livre = await LivreService.getLivreByID(request.params.id);
             result.json(livre)
         } catch (error) {
             result.status(500);

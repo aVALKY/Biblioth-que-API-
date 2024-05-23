@@ -1,11 +1,11 @@
 const Emprunteur = require("../Models/Emprunteur");
 
 class EmprunteurService {
-    async getAllCompte(){
+    async getAllEmprunteur(){
         return await Emprunteur.findAll();
     }
 
-    async getCompteByID(EmprunteurID){
+    async getEmprunteurByID(EmprunteurID){
         return await Emprunteur.findByPk(EmprunteurID)
     }
 }
