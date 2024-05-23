@@ -20,6 +20,16 @@ class LivreController {
             result.json({error : "Une erreur est survenue lors de la récupération du livre"});
         }
     }
+
+    async getLivreByID(request, result){
+        try {
+            const livre = await LivreService.getLivreByID(request.params.id);
+            result.json(livre)
+        } catch (error) {
+            result.status(500);
+            result.json({error : "Une erreur est survenue lors de la récupération des livres"});
+        }
+    }
 }
 
 

@@ -20,6 +20,16 @@ class EmpruntController {
             result.json({error : "Une erreur est survenue lors de la récupération des emprunts"});
         }
     }
+
+    async addEmprunt(request, result){
+        try{
+            const emprunt = await EmpruntService.addEmprunt(request.body);
+            result.json(emprunt);
+        }catch(error){
+            result.status(500);
+            result.json({error : "Une erreur est survenue lors de l'insertion de l'emprunt"})
+        }
+    }
 }
 
 

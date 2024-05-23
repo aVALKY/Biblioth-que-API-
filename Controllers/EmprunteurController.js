@@ -21,6 +21,16 @@ class EmprunteurController {
             result.json({error : "Une erreur est survenue lors de la récupération des emprunteurs"});
         }
     }
+
+    async getEmprunteurByID(request, result){
+        try {
+            const emprunteur = await EmprunteurService.getEmprunteurByID(request.params.id);
+            result.json(emprunteur)
+        } catch (error) {
+            result.status(500);
+            result.json({error : "Une erreur est survenue lors de la récupération des emprunteurs"});
+        }
+    }
 }
 
 

@@ -8,6 +8,10 @@ class EmpruntService {
     async getEmpruntByID(EmpruntID){
         return await Emprunt.findByPk(EmpruntID)
     }
+
+    async addEmprunt(emprunt){
+        return await Emprunt.create(emprunt);
+    }
 }
 
 module.exports = new EmpruntService();

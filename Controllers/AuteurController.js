@@ -20,6 +20,16 @@ class AuteurController {
             result.json({error : "Une erreur est survenue lors de la récupération de l'auteur"});
         }
     }
+
+    async addAuteur(request, result){
+        try{
+            const auteur = await AuteurService.addAuteur(request.body);
+            result.json(auteur);
+        }catch(error){
+            result.status(500);
+            result.json({error : "Une erreur est survenue lors de l'insertion de l'auteur"})
+        }
+    }
 }
 
 
