@@ -12,6 +12,12 @@ class EmprunteurService {
     async addEmprunteur(emprunteur){
         return await Emprunteur.create(emprunteur);
     }
+
+    async removeEmprunteur(emprunteurID){
+        return await Emprunteur.destroy({
+            where : {CL_ID : emprunteurID}
+        })
+    }
 }
 
 module.exports = new EmprunteurService();

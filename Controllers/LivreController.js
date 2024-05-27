@@ -30,6 +30,17 @@ class LivreController {
             result.json({error : "Une erreur est survenue lors de la récupération des livres"});
         }
     }
+
+
+    async removeLivre(request, result){
+        try {
+            await LivreService.removeLivre(request.params.id);
+            result.json({message : "Le livre à bien été supprimé"});
+        } catch (error) {
+            result.status(500);
+            result.json({error : "Une erreur est survenue lors de la suppression du livre"})
+        }
+    }
 }
 
 

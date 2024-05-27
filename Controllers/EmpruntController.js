@@ -30,6 +30,16 @@ class EmpruntController {
             result.json({error : "Une erreur est survenue lors de l'insertion de l'emprunt"})
         }
     }
+
+    async removeEmprunt(request, result){
+        try {
+            await EmpruntService.removeEmprunt(request.params.id);
+            result.json({message : "L'emprunt à bien été supprimé"});
+        } catch (error) {
+            result.status(500);
+            result.json({error : "Une erreur est survenue lors de la suppression de l'emprunt"})
+        }
+    }
 }
 
 

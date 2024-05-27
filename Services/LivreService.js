@@ -12,6 +12,12 @@ class LivreService {
     async addLivre(livre){
         return await Livre.create(livre);
     }
+
+    async removeLivre(livreID){
+        return await Livre.destroy({
+            where : {CL_ID : livreID}
+        })
+    }
 }
 
 module.exports = new LivreService();

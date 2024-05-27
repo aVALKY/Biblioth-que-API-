@@ -12,6 +12,12 @@ class AuteurService {
     async addAuteur(auteur){
         return await Auteur.create(auteur);
     }
+
+    async removeAuteur(auteurID){
+        return await Auteur.destroy({
+            where : {CL_ID : auteurID}
+        })
+    }
 }
 
 module.exports = new AuteurService();

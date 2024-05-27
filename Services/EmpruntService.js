@@ -12,6 +12,12 @@ class EmpruntService {
     async addEmprunt(emprunt){
         return await Emprunt.create(emprunt);
     }
+
+    async removeEmprunt(empruntID){
+        return await Emprunt.destroy({
+            where : {CL_ID : empruntID}
+        })
+    }
 }
 
 module.exports = new EmpruntService();
