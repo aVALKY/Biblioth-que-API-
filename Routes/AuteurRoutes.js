@@ -6,6 +6,7 @@ router.get('/', (request, result) => AuteurController.getAllAuteur(request,resul
 router.get('/:id',(request, result) => AuteurController.getAuteurByID(request, result));
 router.post('/' , (request, result) => AuteurController.addAuteur(request, result));
 router.delete('/:id', (request, result) => AuteurController.removeAuteur(request, result));
+router.patch('/:id', (request, result) => AuteurController.updateAuteur(request, result));
 
 
 module.exports = router;

@@ -18,6 +18,13 @@ class LivreService {
             where : {CL_ID : livreID}
         })
     }
+
+    async updateLivre(livreID, livre){
+        return await Livre.update(livre , {
+            where : {CL_ID : livreID},
+            individualHooks : true
+        })
+    }
 }
 
 module.exports = new LivreService();

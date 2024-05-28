@@ -40,6 +40,16 @@ class EmpruntController {
             result.json({error : "Une erreur est survenue lors de la suppression de l'emprunt"})
         }
     }
+
+    async updateEmprunt(request, result){
+        try {
+            const emprunt = await EmpruntService.updateEmprunt(request.params.id, request.body);
+            result.json(emprunt);
+        } catch (error) {
+            result.status(500);
+            result.json({error : "Une erreur est survenue lors de la modification de l'emprunt"})
+        }
+    }
 }
 
 

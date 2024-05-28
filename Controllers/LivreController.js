@@ -21,7 +21,7 @@ class LivreController {
         }
     }
 
-    async getLivreByID(request, result){
+    async addLivre(request, result){
         try {
             const livre = await LivreService.getLivreByID(request.params.id);
             result.json(livre)
@@ -39,6 +39,16 @@ class LivreController {
         } catch (error) {
             result.status(500);
             result.json({error : "Une erreur est survenue lors de la suppression du livre"})
+        }
+    }
+
+    async updateLivre(request, result){
+        try {
+            const livre = await LivreService.updateLivre(request.params.id, request.body);
+            result.json(livre);
+        } catch (error) {
+            result.status(500);
+            result.json({error : "Une erreur est survenue lors de la modification du livre"})
         }
     }
 }

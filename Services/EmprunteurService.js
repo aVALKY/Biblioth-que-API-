@@ -15,7 +15,14 @@ class EmprunteurService {
 
     async removeEmprunteur(emprunteurID){
         return await Emprunteur.destroy({
-            where : {CL_ID : emprunteurID}
+            where : {id : emprunteurID}
+        })
+    }
+
+    async updateEmprunteur(emprunteurID, emprunteur){
+        return await Emprunteur.update(emprunteur , {
+            where : {id : emprunteurID},
+            individualHooks : true
         })
     }
 }

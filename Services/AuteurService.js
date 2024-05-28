@@ -18,6 +18,13 @@ class AuteurService {
             where : {CL_ID : auteurID}
         })
     }
+
+    async updateAuteur(auteurID, auteur){
+        return await Auteur.update(auteur , {
+            where : {CL_ID : auteurID},
+            individualHooks : true
+        })
+    }
 }
 
 module.exports = new AuteurService();

@@ -18,6 +18,13 @@ class EmpruntService {
             where : {CL_ID : empruntID}
         })
     }
+
+    async updateEmprunt(empruntID, emprunt){
+        return await Emprunt.update(emprunt , {
+            where : {CL_ID : empruntID},
+            individualHooks : true
+        })
+    }
 }
 
 module.exports = new EmpruntService();

@@ -1,8 +1,12 @@
 const {Model, DataTypes} = require('sequelize');
 const sequelize = require('../Config/Sequelize');
+const bcrypt = require('bcrypt');
+const EmpruntService = require('../Services/EmpruntService');
 
 class Emprunteur extends Model {
-
+    async validatePassword(password){
+        return await bcrypt.compare(password, this.Password_Emprunteur);
+    }
 }
 
 Emprunteur.init({
@@ -27,7 +31,7 @@ Emprunteur.init({
         type : DataTypes.STRING,
         allowNull : true
     },
-    password_Emprunteur : {
+    Password_Emprunteur : {
         type : DataTypes.STRING,
         allowNull : false
     },
@@ -35,8 +39,18 @@ Emprunteur.init({
 }, {
     sequelize,
     modelName : "Emprunteur",
-    tableName : "Emprunteur",
-    timestamps : false
+    tableName : "emprunteur",
+    timestamps : false,
+    hooks : {
+        beforeCreate : async (emprunteur) => {
+            emprunteur.Password_Emprunteur = await bcrypt.hash(emprunteur.Password_Emprunteur, 10); 
+        },
+        beforeUpdate : async (emprunteur) => {
+            if (emprunteur.changed('Password_Emprunteur')) {
+                emprunteur.Password_Emprunteur = await bcrypt.hash(emprunteur.Password_Emprunteur, 10)
+            }
+        }
+    }
 })
 
 module.exports = Emprunteur;

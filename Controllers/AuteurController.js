@@ -40,6 +40,16 @@ class AuteurController {
             result.json({error : "Une erreur est survenue lors de la suppression de l'auteur"})
         }
     }
+
+    async updateAuteur(request, result){
+        try {
+            const auteur = await AuteurService.updateAuteur(request.params.id, request.body);
+            result.json(auteur);
+        } catch (error) {
+            result.status(500);
+            result.json({error : "Une erreur est survenue lors de la modification de l'auteur "})
+        }
+    }
 }
 
 
