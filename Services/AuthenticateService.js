@@ -10,7 +10,6 @@ class AuthenticateService{
 
     async login (email, password){
         const emprunteur = await Emprunteur.findOne({ where : {Email_Emprunteur : email}})
-        console.log(emprunteur);
         if (!emprunteur || !await emprunteur.validatePassword(password)){
             throw new Error("Email ou mdp n'est pas correct")
         }
