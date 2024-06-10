@@ -6,8 +6,8 @@ class AuthenticateController{
 
     async register(request, result){
         try {
-            const token = await AuthenticateService.register(request.body);
-            result.json({token : token});
+            const emprunteur = await AuthenticateService.register(request.body);
+            result.json({emprunteur : emprunteur, message : "Bien joué"});
         } catch (error) {
             result.status(500)
             result.json({error : "Une erreur est surevenu lors de l'inscription"})

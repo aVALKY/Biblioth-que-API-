@@ -15,13 +15,13 @@ class AuteurService {
 
     async removeAuteur(auteurID){
         return await Auteur.destroy({
-            where : {CL_ID : auteurID}
+            where : {id : auteurID}
         })
     }
 
     async updateAuteur(auteurID, auteur){
         return await Auteur.update(auteur , {
-            where : {CL_ID : auteurID},
+            where : {id : auteurID},
             individualHooks : true
         })
     }

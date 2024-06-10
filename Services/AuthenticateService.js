@@ -5,7 +5,8 @@ const Emprunteur = require("../Models/Emprunteur");
 class AuthenticateService{
     async register(emprunteurData){
         const emprunteur = await Emprunteur.create(emprunteurData);
-        return this.generateToken(emprunteur);
+        return emprunteur
+        // return this.generateToken(emprunteur);
     }
 
     async login (email, password){
@@ -21,7 +22,7 @@ class AuthenticateService{
             id: emprunteur.id,
             email: emprunteur.Email_Emprunteur
         }
-        return jwt.sign(payload,config.SECRET,{expiresIn: '1h'})
+        return jwt.sign(payload,config.SECRET,{expiresIn: '2h'})
     }
 }
 
